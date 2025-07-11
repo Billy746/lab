@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Alert } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
   const [email, setEmail] = useState('');
@@ -21,6 +22,7 @@ export default function Login() {
 
       localStorage.setItem('token', data.token);
       alert('Login successful!');
+      // redirect or reload can be added here
     } catch (err) {
       setError(err.message);
     }
@@ -33,14 +35,30 @@ export default function Login() {
       <Form onSubmit={handleLogin}>
         <Form.Group className="mb-3">
           <Form.Label>Email</Form.Label>
-          <Form.Control type="email" value={email} required onChange={(e) => setEmail(e.target.value)} />
+          <Form.Control
+            type="email"
+            value={email}
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" value={password} required onChange={(e) => setPassword(e.target.value)} />
+          <Form.Control
+            type="password"
+            value={password}
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </Form.Group>
         <Button type="submit" variant="primary">Login</Button>
       </Form>
+      
+      <div className="mt-3">
+        <p>
+          Don't have an account? <Link to="/register">Sign Up</Link>
+        </p>
+      </div>
     </Container>
   );
 }

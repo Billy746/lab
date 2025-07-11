@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import { Form, Button, Container, Alert } from 'react-bootstrap';
 
@@ -26,7 +27,7 @@ export default function Register() {
 
   return (
     <Container className="py-5" style={{ maxWidth: '500px' }}>
-      <h2>Register</h2>
+      <h2>Sign Up</h2>
       {error && <Alert variant="danger">{error}</Alert>}
       <Form onSubmit={handleRegister}>
         <Form.Group className="mb-3">
@@ -41,7 +42,17 @@ export default function Register() {
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} />
         </Form.Group>
-        <Button type="submit" variant="success">Register</Button>
+        <Form.Group className="mb-3">
+          <Form.Label>Confirm Password</Form.Label>
+          <Form.Control type="password" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} />
+        </Form.Group>
+        <Button type="submit" variant="success">Sign Up</Button>
+        <div className="mt-3">
+        <p>
+          Already have account? <Link to="/login">Login</Link>
+        </p>
+      </div>
+
       </Form>
     </Container>
   );

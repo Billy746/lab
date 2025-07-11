@@ -5,21 +5,18 @@ export default function Contact() {
   return (
     <Container className="py-5">
       <h2>Contact Us</h2>
-      <Form className="mt-4" style={{ maxWidth: '500px' }}>
-        <Form.Group className="mb-3">
-          <Form.Label>Name</Form.Label>
-          <Form.Control type="text" placeholder="Your name" />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Email</Form.Label>
-          <Form.Control type="email" placeholder="you@example.com" />
-        </Form.Group>
-        <Form.Group className="mb-3">
-          <Form.Label>Message</Form.Label>
-          <Form.Control as="textarea" rows={3} />
-        </Form.Group>
-        <Button type="submit" variant="primary">Send</Button>
-      </Form>
+      <div>
+        <p>
+          Address: 123 React Street, UI City, CA 90210
+        </p>
+        <p>
+          Email: hello@prodmanage.com
+        </p>
+        <p>
+          Phone: +1 (555) 123-4567
+        </p>
+      </div>
+
     </Container>
   );
 }
